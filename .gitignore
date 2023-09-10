@@ -131,3 +131,4 @@ dmypy.json
 .env
 .DS_Store
 .db
+.txt
