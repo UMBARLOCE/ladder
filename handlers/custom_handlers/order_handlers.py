@@ -24,7 +24,7 @@ async def open_order_(message: types.Message, state: FSMContext) -> None:
         data['key']: str = row_from_api[1]
         data['secret']: str = row_from_api[2]
         await message.answer(
-            text=f'Выбери направление.',
+            text=f'Выберите направление.',
             reply_markup=kb_buy_sell(),
         )
         await Order_State.side.set()
