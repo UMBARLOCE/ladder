@@ -14,13 +14,13 @@ def create_api() -> None:
         )""")
 
 
-async def insert_api(data: dict) -> None:
+async def insert_api(tg_user_id: int, key: str, secret: str) -> None:
     """Создать запись в таблице 'api'."""
     with sq.connect(os.path.join('database', 'data_base.db')) as con:
         cur = con.cursor()
         cur.execute(
             "INSERT INTO api VALUES (NULL, ?, ?, ?)",
-            (data['tg_user_id'], data['key'], data['secret']),
+            (tg_user_id, key, secret),
         )
 
 

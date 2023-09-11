@@ -46,10 +46,13 @@ async def set_secret(message: types.Message, state: FSMContext) -> None:
         data['secret']: int = message.text
     api_data: dict = await state.get_data()  # берём словарик с данными
     await state.finish()  # выход из машины состояний
+
+    #######################################################
+
     row_from_api = await select_api(api_data['tg_user_id'])
 
     if row_from_api is None:
-        await insert_api(api_data)
+        await insert_api(**api_data)
     else:
         await update_api(**api_data)
 

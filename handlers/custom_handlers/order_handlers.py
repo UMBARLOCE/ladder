@@ -113,6 +113,8 @@ async def confirm_order(message: types.Message, state: FSMContext) -> None:
     order_data: dict = await state.get_data()  # берём словарик с данными
     await state.finish()  # выход из машины состояний
 
+    #######################################################
+
     try:
         ladder_data: dict = get_ladder_usdt(**order_data)
     except:
@@ -120,8 +122,6 @@ async def confirm_order(message: types.Message, state: FSMContext) -> None:
     
     ladder_data |= order_data
     await set_ladder_orders(**ladder_data)
-
-    return
 
 
 def reg_order_handlers(dp: Dispatcher) -> None:

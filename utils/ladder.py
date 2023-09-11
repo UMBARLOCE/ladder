@@ -47,7 +47,7 @@ def get_ladder_usdt(symbol: str, side: str, entry_price: float, **kwargs: dict) 
         full_quantity = round(full_quantity + cur_quantity, step)
         full_usdt += cur_usdt
         ladder[str(i)] = {'quantity': cur_quantity, 'price': liq_price}
-    print(ladder)
+
     return ladder
 
 
